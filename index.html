@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Balloon Boy - Animación CSS</title>
+  <link rel="stylesheet" href="styles.css" />
+<style>
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.background {
+  background: url('https://media.istockphoto.com/id/155886363/es/vector/carpa-de-circo-de-fondo.jpg?s=612x612&w=0&k=20&c=0Da6FKf_mMfCykTvHiDONfFml4p9P19VvaPIJd3Ycqc=') no-repeat center center/cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.scene {
+  position: absolute;
+  bottom: 0;
+  width: 101%;
+  height: 100%;
+}
+
+.balloon-boy {
+  position: absolute;
+  bottom: 0;
+  left: 40%;
+  width: 100px;
+  z-index: 2;
+  animation: boy-wait 3s ease-in-out, boy-lift 3s ease-in-out 6s forwards;
+}
+
+.globo {
+  position: absolute;
+  bottom: 130px;
+  left: 40%;
+  width: 70px;
+  z-index: 1;
+  animation: balloon-up 3s ease-in-out, balloon-down 3s ease-in-out 3s, balloon-lift 3s ease-in-out 6s forwards;
+}
+
+.texto {
+  position: absolute;
+  bottom: 160px;
+  left: 39%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  animation: fadeout 2s ease 2s forwards;
+}
+
+/* Animaciones */
+@keyframes balloon-up {
+  0% { bottom: 100px; }
+  100% { bottom: 90%; }
+}
+
+@keyframes balloon-down {
+  0% { bottom: 90%; left: 42%; }
+  100% { bottom: 100px; left: 40%; }
+}
+
+@keyframes balloon-lift {
+  0% { bottom: 100px; left: 40%; }
+  100% { bottom: 90%; left: 40%; }
+}
+
+@keyframes boy-wait {
+  0% { bottom: 0; }
+  100% { bottom: 0; }
+}
+
+@keyframes boy-lift {
+  0% { bottom: 0; }
+  100% { bottom: 90%; }
+}
+
+@keyframes fadeout {
+  to { opacity: 0; }
+}
+</style>
+  
+</head>
+<body>
+  <div class="background">
+    <div class="scene">
+      <img src="https://img.wattpad.com/b60923ede4209ec1291c339fe80e9029cbf8db03/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f54705176544d30666231497735513d3d2d3431323931333333332e3134626632396431303535666134316637303333323932333531352e676966"alt="Balloon Boy" class="balloon-boy" />
+      <img src="https://images.vexels.com/content/159171/preview/balloon-circle-illustration-7a6b46.png" alt="Globo" class="globo" />
+      <p class="texto">¡Oh no, se me fue el globo!</p>
+    </div>
+  </div>
+</body>
+</html>
